@@ -1,3 +1,22 @@
+:root {
+  --primary-white: hsl(255, 100%, 100%);
+  --primary-blue: hsl(246, 80%, 60%);
+  --primary-soft-blue: hsl(195, 74%, 62%);
+  --primary-red: hsl(348, 100%, 68%);
+  --primary-orange: hsl(15, 100%, 70%);
+  --primary-soft-orange: hsl(43, 84%, 65%);
+  --primary-lime: hsl(145, 58%, 55%);
+  --primary-violet: hsl(264, 64%, 52%);
+  --neutral-dark-blue: hsl(235, 46%, 20%);
+  --neutral-very-dark-blue: hsl(226, 43%, 10%);
+  --neutral-desaturated-blue: hsl(235, 45%, 61%);
+  --neutral-pale-blue: hsl(236, 100%, 87%);
+}
+:root {
+  --sz-mobile: 375px;
+  --sz-desktop: 1440px;
+  --sz-font: 18px;
+}
 /*
 	Standard CSS Reset
 	This is used to account for differences in browsers.
@@ -53,13 +72,133 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.attribution {
+@font-face {
+  font-family: "Rublic";
+  font-style: normal;
+  font-weight: 200;
+  src: url("/Rubik-Light.642acd26.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rublic";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/Rubik-Regular.66042536.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rublic";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/Rubik-Medium.57b0819a.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rublic";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/Rubik-SemiBold.4ae8b076.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rublic";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/Rubik-Bold.98849c32.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Rublic";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/Rubik-ExtraBold.f2e3f5a1.ttf") format("truetype");
+}
+body {
+  font-family: "Rublic";
+  font-weight: 300;
+  font-size: var(--sz-font);
+  min-height: 100vh;
+  background-color: var(--neutral-very-dark-blue);
+  color: var(--primary-white);
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+.wrapper {
+  background-color: var(--neutral-dark-blue);
+  border-radius: 20px;
+  overflow: hidden;
+}
+main {
+  max-width: var(--sz-mobile);
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+@media screen and (max-width: 1440px) {
+  main {
+    max-width: var(--sz-mobile);
+  }
+}
+@media screen and (min-width: 1440px) {
+  main {
+    max-width: var(--sz-desktop);
+  }
+}
+
+footer {
+  margin-top: 50px;
+}
+footer.attribution {
   font-size: 11px;
   text-align: center;
 }
-
-.attribution a {
+footer.attribution a {
   color: #3e52a3;
+}
+.profile {
+  margin-bottom: 15px;
+}
+.profile figure {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-blue);
+  padding: 30px 25px;
+}
+.profile figure img {
+  display: block;
+  width: 60px;
+  height: auto;
+  border: 2px solid var(--primary-white);
+  border-radius: 50%;
+}
+.profile figure figcaption {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profile figure figcaption span {
+  margin-bottom: 7px;
+  color: var(--neutral-pale-blue);
+  font-size: 0.8rem;
+}
+.profile figure figcaption strong {
+  font-size: 1.2rem;
+}
+.profile .time-categories ul {
+  padding: 25px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.profile .time-categories ul .category-btn {
+  color: var(--neutral-pale-blue);
+  font-size: 1.2rem;
+}
+.profile .time-categories ul .category-btn:active, .profile .time-categories ul .category-btn:hover {
+  color: var(--primary-white);
 }
 
 /*# sourceMappingURL=/scss.6b84482b.css.map */

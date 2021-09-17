@@ -1,2 +1,20 @@
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+body {
+	font-family: "Rublic";
+	font-weight: 300;
+	font-size: var(--sz-font);
+	min-height: 100vh;
+	background-color: var(--neutral-very-dark-blue);
+	color: var(--primary-white);
+}
+
+body * {
+	box-sizing: border-box;
+}
+
+button {
+	border: none;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+}
+

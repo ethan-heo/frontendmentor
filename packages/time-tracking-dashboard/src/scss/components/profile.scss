@@ -1,0 +1,51 @@
+.profile {
+	margin-bottom: 15px;
+
+	figure {
+		display: flex;
+		align-items: center;
+		background-color: var(--primary-blue);
+		padding: 30px 25px;
+	
+		img {
+			display: block;
+			width: 60px;
+			height: auto;
+			border: 2px solid var(--primary-white);
+			border-radius: 50%;
+		}
+		
+		figcaption {
+			margin-left: 15px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			span {
+				margin-bottom: 7px;
+				color: var(--neutral-pale-blue);
+				font-size: 0.8rem;
+			}
+
+			strong {
+				font-size: 1.2rem;
+			}
+		}
+	}
+
+	.time-categories ul {
+		padding: 25px 20px;
+		display: flex;
+		justify-content: space-between;
+
+		.category-btn {
+			color: var(--neutral-pale-blue);
+			font-size: 1.2rem;
+
+			&:active,
+			&:hover {
+				color: var(--primary-white);
+			}
+		}
+	}
+}

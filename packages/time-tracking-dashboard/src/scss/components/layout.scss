@@ -1,0 +1,27 @@
+main {
+	max-width: var(--sz-mobile);
+	margin: 0 auto;
+	padding: 50px 20px;
+
+	// media query에서 어떻게 variable을 사용할까?
+	@media screen and (max-width: 1440px) {
+		max-width: var(--sz-mobile);
+	}
+
+	@media screen and (min-width: 1440px) {
+		max-width: var(--sz-desktop);
+	}
+}
+
+footer {
+	margin-top: 50px;
+
+	&.attribution { 
+		font-size: 11px; 
+		text-align: center; 
+
+		a { 
+			color: hsl(228, 45%, 44%); 
+		}
+	}
+}
