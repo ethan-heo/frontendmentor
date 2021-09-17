@@ -1,0 +1,13 @@
+{
+	"name": "time-tracking-dashboard",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"start:dev": "parcel serve src/index.html --port 3040"
+	},
+	"dependencies": {
+		"parcel-bundler": "^1.12.5",
+		"sass": "^1.41.1"
+	}
+}

@@ -1,61 +1,64 @@
 {
-  "packages": [
-    "packages/*"
-  ],
-  "npmClient": "yarn",
-  "version": "0.0.0",
-  "bootstrapConfig": {
-    "ignore": [
-      "webapp"
-    ]
-  },
-  "command": {
-    "version": {
-      "conventionalCommits": true,
-      "changelogPreset": {
-        "name": "conventional-changelog-conventionalcommits",
-        "types": [
-          {
-            "type": "feat",
-            "section": "✨ New Features"
-          },
-          {
-            "type": "fix",
-            "section": "🐛 Bug Fixes"
-          },
-          {
-            "type": "chore",
-            "section": "🔧 Others"
-          },
-          {
-            "type": "docs",
-            "section": "Documentations",
-            "hidden": true
-          },
-          {
-            "type": "style",
-            "section": "Styling",
-            "hidden": true
-          },
-          {
-            "type": "refactor",
-            "section": "Code Refactoring",
-            "hidden": true
-          },
-          {
-            "type": "test",
-            "section": "Tests",
-            "hidden": true
-          }
-        ],
-        "issuePrefixes": [
-          "#"
-        ],
-        "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
-        "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
-        "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
-        "userUrlFormat": "{{host}}/{{user}}"
-      }
-    }
-  }
+	"packages": [
+		"packages/*"
+	],
+	"npmClient": "yarn",
+	"version": "0.0.0",
+	"bootstrapConfig": {
+		"ignore": [
+			"webapp"
+		]
+	},
+	"command": {
+		"run": {
+			"npmClient": "yarn"
+		},
+		"version": {
+			"conventionalCommits": true,
+			"changelogPreset": {
+				"name": "conventional-changelog-conventionalcommits",
+				"types": [
+				{
+					"type": "feat",
+					"section": "✨ New Features"
+				},
+				{
+					"type": "fix",
+					"section": "🐛 Bug Fixes"
+				},
+				{
+					"type": "chore",
+					"section": "🔧 Others"
+				},
+				{
+					"type": "docs",
+					"section": "Documentations",
+					"hidden": true
+				},
+				{
+					"type": "style",
+					"section": "Styling",
+					"hidden": true
+				},
+				{
+					"type": "refactor",
+					"section": "Code Refactoring",
+					"hidden": true
+				},
+				{
+					"type": "test",
+					"section": "Tests",
+					"hidden": true
+				}
+				],
+				"issuePrefixes": [
+				"#"
+				],
+				"issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
+				"commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
+				"compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
+				"userUrlFormat": "{{host}}/{{user}}"
+			}
+		}
+	}
 }

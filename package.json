@@ -3,7 +3,8 @@
 	"private": "true",
 	"author": "ethan-heo <ethan.hb94@gmail.com>",
 	"scripts": {
-		"install": "npx husky install"
+		"install": "npx husky install",
+		"run:time-tracking-dashboard": "lerna run --scope time-tracking-dashboard start:dev --parallel"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.0",
