@@ -117,28 +117,134 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"modules/apis/apis.ts":[function(require,module,exports) {
+})({"db/data.json":[function(require,module,exports) {
+module.exports = {
+  "data": [{
+    "title": "Work",
+    "timeframes": {
+      "daily": {
+        "current": 5,
+        "previous": 7
+      },
+      "weekly": {
+        "current": 32,
+        "previous": 36
+      },
+      "monthly": {
+        "current": 103,
+        "previous": 128
+      }
+    }
+  }, {
+    "title": "Play",
+    "timeframes": {
+      "daily": {
+        "current": 1,
+        "previous": 2
+      },
+      "weekly": {
+        "current": 10,
+        "previous": 8
+      },
+      "monthly": {
+        "current": 23,
+        "previous": 29
+      }
+    }
+  }, {
+    "title": "Study",
+    "timeframes": {
+      "daily": {
+        "current": 0,
+        "previous": 1
+      },
+      "weekly": {
+        "current": 4,
+        "previous": 7
+      },
+      "monthly": {
+        "current": 13,
+        "previous": 19
+      }
+    }
+  }, {
+    "title": "Exercise",
+    "timeframes": {
+      "daily": {
+        "current": 1,
+        "previous": 1
+      },
+      "weekly": {
+        "current": 4,
+        "previous": 5
+      },
+      "monthly": {
+        "current": 11,
+        "previous": 18
+      }
+    }
+  }, {
+    "title": "Social",
+    "timeframes": {
+      "daily": {
+        "current": 1,
+        "previous": 3
+      },
+      "weekly": {
+        "current": 5,
+        "previous": 10
+      },
+      "monthly": {
+        "current": 21,
+        "previous": 23
+      }
+    }
+  }, {
+    "title": "Self Care",
+    "timeframes": {
+      "daily": {
+        "current": 0,
+        "previous": 1
+      },
+      "weekly": {
+        "current": 2,
+        "previous": 2
+      },
+      "monthly": {
+        "current": 7,
+        "previous": 11
+      }
+    }
+  }]
+};
+},{}],"ts/modules/db/db.ts":[function(require,module,exports) {
 "use strict";
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getTrackingItems = void 0;
+exports.getTrackingItmes = void 0;
 
-function getTrackingItems() {
-  return fetch("../../db/data.json").then(function (result) {
-    return result.json();
-  });
+var data_json_1 = __importDefault(require("../../../db/data.json"));
+
+function getTrackingItmes() {
+  return data_json_1.default.data;
 }
 
-exports.getTrackingItems = getTrackingItems;
-},{}],"modules/apis/types.ts":[function(require,module,exports) {
+exports.getTrackingItmes = getTrackingItmes;
+},{"../../../db/data.json":"db/data.json"}],"ts/modules/db/types.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-},{}],"modules/apis/index.ts":[function(require,module,exports) {
+},{}],"ts/modules/db/index.ts":[function(require,module,exports) {
 "use strict";
 
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
@@ -164,11 +270,85 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__exportStar(require("./apis"), exports);
+__exportStar(require("./db"), exports);
 
 __exportStar(require("./types"), exports);
-},{"./apis":"modules/apis/apis.ts","./types":"modules/apis/types.ts"}],"ts/index.ts":[function(require,module,exports) {
+},{"./db":"ts/modules/db/db.ts","./types":"ts/modules/db/types.ts"}],"ts/render/index.ts":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.render = void 0;
+
+function render(target, templates) {
+  target.innerHTML = templates.join("");
+}
+
+exports.render = render;
+},{}],"ts/templates/trackingItem.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.parseTrackingItemTemp = void 0;
+var TIME_FRAME_TEXT_MAP = {
+  daily: "Yesterday",
+  weekly: "Last Week",
+  monthly: "Last Month"
+};
+
+function parseTrackingItemTemp(trackingInfo) {
+  return "\n\t\t<li class=\"" + trackingInfo.title + "\">\n\t\t\t<div class=\"tracking-item-content\">\n\t\t\t\t<header>\n\t\t\t\t\t<h4>" + trackingInfo.title + "</h4>\n\t\t\t\t\t<button></button>\n\t\t\t\t</header>\n\t\t\t\t<div class=\"tracking-item-timeframes\">\n\t\t\t\t\t<span>" + trackingInfo.timeframe.current + "</span>\n\t\t\t\t\t<span>" + TIME_FRAME_TEXT_MAP[trackingInfo.timeframe.type] + " - " + trackingInfo.timeframe.previous + "</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</li>\n\t";
+}
+
+exports.parseTrackingItemTemp = parseTrackingItemTemp;
+},{}],"ts/templates/index.ts":[function(require,module,exports) {
+"use strict";
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __exportStar = this && this.__exportStar || function (m, exports) {
+  for (var p in m) {
+    if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+  }
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__exportStar(require("./trackingItem"), exports);
+},{"./trackingItem":"ts/templates/trackingItem.ts"}],"ts/index.ts":[function(require,module,exports) {
+"use strict";
+
+var __assign = this && this.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
 
 var __awaiter = this && this.__awaiter || function (thisArg, _arguments, P, generator) {
   function adopt(value) {
@@ -317,29 +497,34 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var apis_1 = require("../modules/apis");
+var db_1 = require("./modules/db");
+
+var render_1 = require("./render");
+
+var templates_1 = require("./templates");
 
 document.addEventListener("DOMContentLoaded", function () {
   return __awaiter(void 0, void 0, void 0, function () {
-    var result;
+    var trackingListEl, trackingItems;
     return __generator(this, function (_a) {
-      switch (_a.label) {
-        case 0:
-          return [4
-          /*yield*/
-          , (0, apis_1.getTrackingItems)()];
-
-        case 1:
-          result = _a.sent();
-          console.log(result);
-          return [2
-          /*return*/
-          ];
-      }
+      trackingListEl = document.querySelector(".tracking-list");
+      if (!trackingListEl) throw new Error("tracking-list\uB97C \uCC3E\uC744 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.");
+      trackingItems = (0, db_1.getTrackingItmes)();
+      (0, render_1.render)(trackingListEl, trackingItems.map(function (trackingItem) {
+        return (0, templates_1.parseTrackingItemTemp)({
+          title: trackingItem.title,
+          timeframe: __assign({
+            type: "daily"
+          }, trackingItem.timeframes["daily"])
+        });
+      }));
+      return [2
+      /*return*/
+      ];
     });
   });
 });
-},{"../modules/apis":"modules/apis/index.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./modules/db":"ts/modules/db/index.ts","./render":"ts/render/index.ts","./templates":"ts/templates/index.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -367,7 +552,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55756" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59309" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
