@@ -42,6 +42,7 @@
 			color: var(--neutral-pale-blue);
 			font-size: 1.2rem;
 
+			&.active,
 			&:active,
 			&:hover {
 				color: var(--primary-white);

@@ -1,4 +1,4 @@
-export type TimeFrame = "daily" | "weekly" | "monthly";
+export type TimeFrameType = "daily" | "weekly" | "monthly";
 
 export type TimeFrameOption = {
 	current: number;
@@ -7,5 +7,5 @@ export type TimeFrameOption = {
 
 export type Tracking = {
 	title: string;
-	timeframes: Record<TimeFrame, TimeFrameOption>;
+	timeframes: Record<TimeFrameType, TimeFrameOption>;
 };

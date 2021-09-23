@@ -197,8 +197,34 @@ footer.attribution a {
   color: var(--neutral-pale-blue);
   font-size: 1.2rem;
 }
-.profile .time-categories ul .category-btn:active, .profile .time-categories ul .category-btn:hover {
+.profile .time-categories ul .category-btn.active, .profile .time-categories ul .category-btn:active, .profile .time-categories ul .category-btn:hover {
   color: var(--primary-white);
+}
+.tracking-list {
+  padding-top: 30px;
+}
+.tracking-list .tracking-item-content {
+  background-color: var(--neutral-dark-blue);
+  padding: 25px 20px;
+}
+.tracking-list .tracking-item-content header h4 {
+  font-weight: 400;
+}
+.tracking-list .tracking-item-content + .tracking-list .tracking-item-content {
+  margin-top: 15px;
+}
+
+.tracking-item-timeframes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tracking-item-timeframes strong {
+  font-size: 1.2rem;
+}
+.tracking-item-timeframes span {
+  font-size: 0.8rem;
+  color: var(--neutral-pale-blue);
 }
 
 /*# sourceMappingURL=/scss.6b84482b.css.map */

@@ -1,31 +1,30 @@
-import { TimeFrameOption, TimeFrame } from "../../modules/db";
+import { TimeFrameOption, TimeFrameType } from "../types";
 
 type GetTrackingItemReturnType = {
 	title: string;
-	timeframe: {
-		type: TimeFrame;
-	} & TimeFrameOption;
+	type: TimeFrameType;
+	timeframe: TimeFrameOption;
 };
 
-const TIME_FRAME_TEXT_MAP: Record<TimeFrame, string> = {
+const TIME_FRAME_TEXT_MAP: Record<TimeFrameType, string> = {
 	daily: "Yesterday",
 	weekly: "Last Week",
 	monthly: "Last Month",
 };
 
-export function parseTrackingItemTemp(trackingInfo: GetTrackingItemReturnType) {
+export function trackingItemTemp(trackingInfo: GetTrackingItemReturnType) {
 	return `
-		<li class="${trackingInfo.title}">
+		<li class="wrapper ${trackingInfo.title.toLowerCase()}">
 			<div class="tracking-item-content">
 				<header>
 					<h4>${trackingInfo.title}</h4>
 					<button></button>
 				</header>
 				<div class="tracking-item-timeframes">
-					<span>${trackingInfo.timeframe.current}</span>
-					<span>${TIME_FRAME_TEXT_MAP[trackingInfo.timeframe.type]} - ${
+					<strong>${trackingInfo.timeframe.current}hrs</strong>
+					<span>${TIME_FRAME_TEXT_MAP[trackingInfo.type]} - ${
 		trackingInfo.timeframe.previous
-	}</span>
+	}hrs</span>
 				</div>
 			</div>
 		</li>
