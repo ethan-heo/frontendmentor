@@ -14,11 +14,11 @@ const TIME_FRAME_TEXT_MAP: Record<TimeFrameType, string> = {
 
 export function trackingItemTemp(trackingInfo: GetTrackingItemReturnType) {
 	return `
-		<li class="wrapper ${trackingInfo.title.toLowerCase()}">
+		<li class="${replaceSpaceToBar(trackingInfo.title.toLowerCase())}">
 			<div class="tracking-item-content">
 				<header>
 					<h4>${trackingInfo.title}</h4>
-					<button></button>
+					<button class="tracking-item-option"></button>
 				</header>
 				<div class="tracking-item-timeframes">
 					<strong>${trackingInfo.timeframe.current}hrs</strong>
@@ -29,4 +29,8 @@ export function trackingItemTemp(trackingInfo: GetTrackingItemReturnType) {
 			</div>
 		</li>
 	`;
+}
+
+function replaceSpaceToBar(str: string) {
+	return str.replace(" ", "-");
 }

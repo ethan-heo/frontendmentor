@@ -1,7 +1,7 @@
 import { TimeFrameType, Tracking } from "./types";
 import { trackingItemTemp } from "./templates";
 import trackings from "../db/data.json";
-import { $, $$, isElement } from "./utils";
+import { $, isElement } from "./utils";
 
 const getTrackings = (trackings: Tracking[]) => (type: TimeFrameType) => {
 	return trackings.map((tracking) =>

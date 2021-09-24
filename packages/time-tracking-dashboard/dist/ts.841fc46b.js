@@ -131,10 +131,14 @@ var TIME_FRAME_TEXT_MAP = {
 };
 
 function trackingItemTemp(trackingInfo) {
-  return "\n\t\t<li class=\"wrapper " + trackingInfo.title.toLowerCase() + "\">\n\t\t\t<div class=\"tracking-item-content\">\n\t\t\t\t<header>\n\t\t\t\t\t<h4>" + trackingInfo.title + "</h4>\n\t\t\t\t\t<button></button>\n\t\t\t\t</header>\n\t\t\t\t<div class=\"tracking-item-timeframes\">\n\t\t\t\t\t<strong>" + trackingInfo.timeframe.current + "hrs</strong>\n\t\t\t\t\t<span>" + TIME_FRAME_TEXT_MAP[trackingInfo.type] + " - " + trackingInfo.timeframe.previous + "hrs</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</li>\n\t";
+  return "\n\t\t<li class=\"" + replaceSpaceToBar(trackingInfo.title.toLowerCase()) + "\">\n\t\t\t<div class=\"tracking-item-content\">\n\t\t\t\t<header>\n\t\t\t\t\t<h4>" + trackingInfo.title + "</h4>\n\t\t\t\t\t<button class=\"tracking-item-option\"></button>\n\t\t\t\t</header>\n\t\t\t\t<div class=\"tracking-item-timeframes\">\n\t\t\t\t\t<strong>" + trackingInfo.timeframe.current + "hrs</strong>\n\t\t\t\t\t<span>" + TIME_FRAME_TEXT_MAP[trackingInfo.type] + " - " + trackingInfo.timeframe.previous + "hrs</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</li>\n\t";
 }
 
 exports.trackingItemTemp = trackingItemTemp;
+
+function replaceSpaceToBar(str) {
+  return str.replace(" ", "-");
+}
 },{}],"ts/templates/index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -543,7 +547,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54655" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59875" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

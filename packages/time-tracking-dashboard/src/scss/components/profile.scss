@@ -1,11 +1,17 @@
 .profile {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	margin-bottom: 15px;
+	background-color: var(--neutral-dark-blue);
+	border-radius: 20px;
+	overflow: hidden;
 
 	figure {
 		display: flex;
 		align-items: center;
 		background-color: var(--primary-blue);
-		padding: 30px 25px;
+		padding: 30px 40px;
 	
 		img {
 			display: block;
@@ -16,7 +22,6 @@
 		}
 		
 		figcaption {
-			margin-left: 15px;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -31,16 +36,43 @@
 				font-size: 1.2rem;
 			}
 		}
+
+		@media screen and (max-width: 1440px) {
+			figcaption {
+				margin-left: 15px;
+			}
+		}
+
+		@media screen and (min-width: 1441px) {
+			flex-direction: column;
+			align-items: flex-start;
+			flex: 1;
+
+			img {
+				width: 100px;
+				margin-bottom: 35px;
+			}
+
+			figcaption {
+				span {
+					font-size: 1.2rem;
+				}
+
+				strong {
+					font-size: 3rem;
+				}
+			}
+		}
 	}
 
 	.time-categories ul {
-		padding: 25px 20px;
+		padding: 20px 40px;
 		display: flex;
 		justify-content: space-between;
 
 		.category-btn {
 			color: var(--neutral-pale-blue);
-			font-size: 1.2rem;
+			font-size: 0.9rem;
 
 			&.active,
 			&:active,
@@ -48,5 +80,21 @@
 				color: var(--primary-white);
 			}
 		}
+
+		@media screen and (min-width: 1441px) {
+			flex-direction: column;
+			
+			li + li {
+				margin-top: 20px;
+			}
+
+			.category-btn {
+				font-size: 1.2rem;
+			}
+		}
+	}
+
+	@media screen and (min-width: 1441px) {
+		margin-bottom: 0;
 	}
 }
