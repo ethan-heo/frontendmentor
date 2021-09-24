@@ -219,6 +219,9 @@ footer.attribution a {
     font-size: 3rem;
   }
 }
+.profile .time-categories {
+  width: 100%;
+}
 .profile .time-categories ul {
   padding: 20px 40px;
   display: flex;
