@@ -4,7 +4,8 @@
 	"author": "ethan-heo <ethan.hb94@gmail.com>",
 	"scripts": {
 		"install": "npx husky install",
-		"run:time-tracking-dashboard": "lerna run --scope time-tracking-dashboard start:dev --parallel"
+		"run:time-tracking-dashboard": "lerna run --scope time-tracking-dashboard start:dev --parallel",
+		"build:time-tracking-dashboard": "lerna run --scope time-tracking-dashboard build --parallel"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.0",
