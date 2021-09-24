@@ -18,26 +18,49 @@
 			left: 0;
 			right: 0;
 			bottom: 0;
-			opacity: 0.6;
 		}
 
-		&.work::before {
-			background-image: url(../../assets/images/icon-work.svg);
+		&.work {
+			background-color: var(--primary-orange);
+
+			&::before {
+				background-image: url(../../assets/images/icon-work.svg);
+			}
 		}
-		&.play::before {
-			background-image: url(../../assets/images/icon-play.svg);
+		&.play {
+			background-color: var(--primary-soft-blue);
+
+			&::before {
+				background-image: url(../../assets/images/icon-play.svg);
+			}
 		}
-		&.study::before {
-			background-image: url(../../assets/images/icon-study.svg);
+		&.study {
+			background-color: var(--primary-red);
+
+			&::before {
+				background-image: url(../../assets/images/icon-study.svg);
+			}
 		}
-		&.exercise::before {
-			background-image: url(../../assets/images/icon-exercise.svg);
+		&.exercise {
+			background-color: var(--primary-lime);
+
+			&::before {
+				background-image: url(../../assets/images/icon-exercise.svg);
+			}
 		}
-		&.social::before {
-			background-image: url(../../assets/images/icon-social.svg);
+		&.social {
+			background-color: var(--primary-violet);
+
+			&::before {
+				background-image: url(../../assets/images/icon-social.svg);
+			}
 		}
-		&.self-care::before {
-			background-image: url(../../assets/images/icon-self-care.svg);
+		&.self-care {
+			background-color: var(--primary-soft-orange);
+
+			&::before {
+				background-image: url(../../assets/images/icon-self-care.svg);
+			}
 		}
 
 		@media screen and (min-width: 1440px) {

@@ -269,22 +269,39 @@ footer.attribution a {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.6;
+}
+.tracking-list li.work {
+  background-color: var(--primary-orange);
 }
 .tracking-list li.work::before {
   background-image: url(/icon-work.8bdb2f6b.svg);
 }
+.tracking-list li.play {
+  background-color: var(--primary-soft-blue);
+}
 .tracking-list li.play::before {
   background-image: url(/icon-play.929d01e4.svg);
+}
+.tracking-list li.study {
+  background-color: var(--primary-red);
 }
 .tracking-list li.study::before {
   background-image: url(/icon-study.9e787fb1.svg);
 }
+.tracking-list li.exercise {
+  background-color: var(--primary-lime);
+}
 .tracking-list li.exercise::before {
   background-image: url(/icon-exercise.6b78dbda.svg);
 }
+.tracking-list li.social {
+  background-color: var(--primary-violet);
+}
 .tracking-list li.social::before {
   background-image: url(/icon-social.1890a584.svg);
+}
+.tracking-list li.self-care {
+  background-color: var(--primary-soft-orange);
 }
 .tracking-list li.self-care::before {
   background-image: url(/icon-self-care.0eb483bf.svg);
