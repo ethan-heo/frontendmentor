@@ -131,7 +131,7 @@ var TIME_FRAME_TEXT_MAP = {
 };
 
 function trackingItemTemp(trackingInfo) {
-  return "\n\t\t<li class=\"" + replaceSpaceToBar(trackingInfo.title.toLowerCase()) + "\">\n\t\t\t<div class=\"tracking-item-content\">\n\t\t\t\t<header>\n\t\t\t\t\t<h4>" + trackingInfo.title + "</h4>\n\t\t\t\t\t<button class=\"tracking-item-option\"></button>\n\t\t\t\t</header>\n\t\t\t\t<div class=\"tracking-item-timeframes\">\n\t\t\t\t\t<strong>" + trackingInfo.timeframe.current + "hrs</strong>\n\t\t\t\t\t<span>" + TIME_FRAME_TEXT_MAP[trackingInfo.type] + " - " + trackingInfo.timeframe.previous + "hrs</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</li>\n\t";
+  return "\n\t\t<li class=\"" + replaceSpaceToBar(trackingInfo.title.toLowerCase()) + "\">\n\t\t\t<div class=\"tracking-item-content\">\n\t\t\t\t<header>\n\t\t\t\t\t<h4>" + trackingInfo.title + "</h4>\n\t\t\t\t\t<button class=\"tracking-item-option\">\n\t\t\t\t\t\toption button\n\t\t\t\t\t</button>\n\t\t\t\t</header>\n\t\t\t\t<div class=\"tracking-item-timeframes\">\n\t\t\t\t\t<strong>" + trackingInfo.timeframe.current + "hrs</strong>\n\t\t\t\t\t<span>" + TIME_FRAME_TEXT_MAP[trackingInfo.type] + " - " + trackingInfo.timeframe.previous + "hrs</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</li>\n\t";
 }
 
 exports.trackingItemTemp = trackingItemTemp;

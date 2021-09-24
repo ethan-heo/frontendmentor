@@ -18,7 +18,9 @@ export function trackingItemTemp(trackingInfo: GetTrackingItemReturnType) {
 			<div class="tracking-item-content">
 				<header>
 					<h4>${trackingInfo.title}</h4>
-					<button class="tracking-item-option"></button>
+					<button class="tracking-item-option">
+						option button
+					</button>
 				</header>
 				<div class="tracking-item-timeframes">
 					<strong>${trackingInfo.timeframe.current}hrs</strong>

@@ -113,7 +113,10 @@
 	
 		.tracking-item-option {
 			width: 20px;
-			height: 20px;
+			height: 0;
+			padding-bottom: 20px;
+			text-indent: -9999px;
+			overflow: hidden;
 			background-image: url(../../assets/images/icon-ellipsis.svg);
 			background-repeat: no-repeat;
 			background-position: center;
