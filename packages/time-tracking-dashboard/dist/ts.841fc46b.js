@@ -272,7 +272,7 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.isElement = exports.$$ = exports.$ = void 0;
+exports.render = exports.isElement = exports.$$ = exports.$ = void 0;
 
 var $ = function $(selector) {
   return document.querySelector(selector);
@@ -292,6 +292,20 @@ var isElement = function isElement(el) {
 };
 
 exports.isElement = isElement;
+
+var render = function render(_a) {
+  var target = _a.target,
+      render = _a.render;
+  return function (prop) {
+    if ((0, exports.isElement)(target)) {
+      target.innerHTML = render(prop);
+    } else {
+      throw new TypeError("target is not element");
+    }
+  };
+};
+
+exports.render = render;
 },{}],"ts/index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -454,7 +468,7 @@ var data_json_1 = __importDefault(require("../db/data.json"));
 
 var utils_1 = require("./utils");
 
-var getTrackings = function getTrackings(trackings) {
+var renderTrackings = function renderTrackings(trackings) {
   return function (type) {
     return trackings.map(function (tracking) {
       return (0, templates_1.trackingItemTemp)({
@@ -462,57 +476,44 @@ var getTrackings = function getTrackings(trackings) {
         timeframe: tracking.timeframes[type],
         type: type
       });
-    });
+    }).join("");
   };
 };
 
-var renderTrackingList = function renderTrackingList(_a) {
-  var target = _a.target,
-      render = _a.render;
-  return function (type) {
-    if ((0, utils_1.isElement)(target)) {
-      target.innerHTML = render(type).join("");
-    }
-  };
-};
+var bindClickCategory = function bindClickCategory(initialTarget) {
+  return function (renderFn) {
+    var prevCategory = initialTarget;
+    return function (e) {
+      var target = e.target;
 
-var clickCategory = function clickCategory(_a) {
-  var target = _a.target,
-      render = _a.render;
-  var prevCategory = target;
-  return function (e) {
-    var target = e.target;
+      if (target.classList.contains("category-btn")) {
+        if ((0, utils_1.isElement)(prevCategory)) {
+          prevCategory.classList.remove("active");
+        }
 
-    if (target.classList.contains("category-btn")) {
-      if ((0, utils_1.isElement)(prevCategory)) {
-        prevCategory.classList.remove("active");
+        renderFn(target.dataset.timeFrame);
+        target.classList.add("active");
+        prevCategory = target;
       }
-
-      render(target.dataset.timeFrame);
-      target.classList.add("active");
-      prevCategory = target;
-    }
+    };
   };
 };
 
 document.addEventListener("DOMContentLoaded", function () {
   return __awaiter(void 0, void 0, void 0, function () {
-    var timeCategoryList, render;
+    var timeCategoryList, renderTrackingList;
     return __generator(this, function (_a) {
       timeCategoryList = (0, utils_1.$)(".time-categories");
-      render = renderTrackingList({
+      renderTrackingList = (0, utils_1.render)({
         target: (0, utils_1.$)(".tracking-list"),
-        render: getTrackings(data_json_1.default.data)
+        render: renderTrackings(data_json_1.default.data)
       });
 
       if ((0, utils_1.isElement)(timeCategoryList)) {
-        timeCategoryList.addEventListener("click", clickCategory({
-          target: (0, utils_1.$)(".time-categories .active"),
-          render: render
-        }));
+        timeCategoryList.addEventListener("click", bindClickCategory((0, utils_1.$)(".time-categories .active"))(renderTrackingList));
       }
 
-      render("daily");
+      renderTrackingList("daily");
       return [2
       /*return*/
       ];

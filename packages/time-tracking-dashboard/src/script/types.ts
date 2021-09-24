@@ -9,3 +9,8 @@ export type Tracking = {
 	title: string;
 	timeframes: Record<TimeFrameType, TimeFrameOption>;
 };
+
+export type RenderParams<F> = {
+	target: Element | null;
+	render: F;
+};
