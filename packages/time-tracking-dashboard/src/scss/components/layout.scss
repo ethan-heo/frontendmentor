@@ -1,19 +1,10 @@
 main {
-	max-width: var(--sz-mobile);
 	margin: 0 auto;
 	padding: 50px 20px;
+	width: 100%;
 
-	// media query에서 어떻게 variable을 사용할까?
-	@media screen and (max-width: 1440px) {
-		max-width: var(--sz-mobile);
-	}
-
-	@media screen and (min-width: 1441px) {
-		display: grid;
-		grid-template-columns: 1fr 3fr;
-		grid-auto-columns: minmax(200px, auto);
-		grid-auto-rows: minmax(400px, auto);
-		gap: 30px;
+	@media screen and (min-width: 1440px) {
+		display: flex;
 		max-width: var(--sz-desktop);
 	}
 }

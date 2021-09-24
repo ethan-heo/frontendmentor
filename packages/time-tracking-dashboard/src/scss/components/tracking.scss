@@ -1,13 +1,16 @@
 .tracking-list {
+	display: flex;
+	flex-wrap: wrap;
+	flex: 1;
+
 	li {
 		position: relative;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		padding-top: 30px;
+		padding-top: 2.5rem;
+		margin-top: 1.5rem;
 		background-repeat: no-repeat;
 		background-color: orange;
 		border-radius: 20px;
+		width: 100%;
 
 		&::before {
 			content: "";
@@ -63,22 +66,32 @@
 			}
 		}
 
+		@media screen and (min-width: 375px) and (max-width: 874px) {
+			width: calc(100% / 2 - 1rem);
+
+			&:nth-child(2n) {
+				margin-left: 2rem;
+			}
+		}
+
+		@media screen and (min-width: 875px) {
+			width: calc(100% / 3 - (2rem / 6 * 4));
+			margin-left: 2rem;
+
+			&:nth-child(1), 
+			&:nth-child(4) {
+				margin-left: 0;
+			}
+		}
+
 		@media screen and (min-width: 1440px) {
-			padding-top: 50px;
+			padding-top: 3.5rem;
+			margin-top: 0;
+			
+			&:nth-child(n + 4) {
+				margin-top: 1.5rem;
+			}
 		}
-	}
-
-	@media screen and (max-width: 1440px) {
-		li + li {
-			margin-top: 15px;
-		}
-	}
-
-	@media screen and (min-width: 1441px) {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: repeat(2, 1fr);
-		gap: 30px;
 	}
 }
 
