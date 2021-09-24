@@ -20,6 +20,12 @@
 	align-items: center;
 	background-color: var(--primary-blue);
 	padding: 30px 40px;
+	flex: 1;
+
+	@media screen and (min-width: 1440px) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 
 	img {
 		display: block;
@@ -27,12 +33,18 @@
 		height: auto;
 		border: 2px solid var(--primary-white);
 		border-radius: 50%;
+
+		@media screen and (min-width: 1440px) {
+			width: 100px;
+			margin-bottom: 35px;
+		}
 	}
 	
 	figcaption {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		margin-left: 15px;
 
 		span {
 			margin-bottom: 7px;
@@ -43,25 +55,8 @@
 		strong {
 			font-size: 1.2rem;
 		}
-	}
 
-	@media screen and (max-width: 1440px) {
-		figcaption {
-			margin-left: 15px;
-		}
-	}
-
-	@media screen and (min-width: 1441px) {
-		flex-direction: column;
-		align-items: flex-start;
-		flex: 1;
-
-		img {
-			width: 100px;
-			margin-bottom: 35px;
-		}
-
-		figcaption {
+		@media screen and (min-width: 1440px) {
 			span {
 				font-size: 1.2rem;
 			}

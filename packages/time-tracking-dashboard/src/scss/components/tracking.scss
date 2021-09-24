@@ -119,7 +119,7 @@
 			background-position: center;
 		}
 
-		@media screen and (min-width: 1441px) {
+		@media screen and (min-width: 1440px) {
 			margin-bottom: 25px;
 		}
 	}
@@ -132,7 +132,7 @@
 		strong {
 			font-size: 1.5rem;
 
-			@media screen and (min-width: 1441px) {
+			@media screen and (min-width: 1440px) {
 				font-size: 3rem;
 				margin-bottom: 15px;
 			}
@@ -142,7 +142,7 @@
 			color: var(--neutral-pale-blue);
 		}
 
-		@media screen and (min-width: 1441px) {
+		@media screen and (min-width: 1440px) {
 			flex-direction: column;
 			align-items: flex-start;
 		}
