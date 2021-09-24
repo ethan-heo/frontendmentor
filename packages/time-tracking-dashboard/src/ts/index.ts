@@ -14,23 +14,23 @@ const getTrackings = (trackings: Tracking[]) => (type: TimeFrameType) => {
 };
 
 type TrackingListParameter = {
-	trackingListEl: Element | null;
-	renderTrackings: (type: TimeFrameType) => string[];
+	target: Element | null;
+	render: (type: TimeFrameType) => string[];
 };
 const renderTrackingList =
-	({ trackingListEl, renderTrackings }: TrackingListParameter) =>
+	({ target, render }: TrackingListParameter) =>
 	(type: TimeFrameType) => {
-		if (isElement(trackingListEl)) {
-			trackingListEl.innerHTML = renderTrackings(type).join("");
+		if (isElement(target)) {
+			target.innerHTML = render(type).join("");
 		}
 	};
 
 type ClickCategoryParameter = {
-	initalCategory: Element | null;
+	target: Element | null;
 	render: (type: TimeFrameType) => void;
 };
-const clickCategory = ({ initalCategory, render }: ClickCategoryParameter) => {
-	let prevCategory: Element | null = initalCategory;
+const clickCategory = ({ target, render }: ClickCategoryParameter) => {
+	let prevCategory: Element | null = target;
 
 	return (e: Event) => {
 		const target = e.target as HTMLButtonElement;
@@ -50,15 +50,15 @@ const clickCategory = ({ initalCategory, render }: ClickCategoryParameter) => {
 document.addEventListener(`DOMContentLoaded`, async () => {
 	const timeCategoryList = $(`.time-categories`);
 	const render = renderTrackingList({
-		trackingListEl: $(`.tracking-list`),
-		renderTrackings: getTrackings(trackings.data),
+		target: $(`.tracking-list`),
+		render: getTrackings(trackings.data),
 	});
 
 	if (isElement(timeCategoryList)) {
 		timeCategoryList.addEventListener(
 			"click",
 			clickCategory({
-				initalCategory: $(".time-categories .active"),
+				target: $(".time-categories .active"),
 				render,
 			})
 		);

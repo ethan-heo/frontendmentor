@@ -467,19 +467,19 @@ var getTrackings = function getTrackings(trackings) {
 };
 
 var renderTrackingList = function renderTrackingList(_a) {
-  var trackingListEl = _a.trackingListEl,
-      renderTrackings = _a.renderTrackings;
+  var target = _a.target,
+      render = _a.render;
   return function (type) {
-    if ((0, utils_1.isElement)(trackingListEl)) {
-      trackingListEl.innerHTML = renderTrackings(type).join("");
+    if ((0, utils_1.isElement)(target)) {
+      target.innerHTML = render(type).join("");
     }
   };
 };
 
 var clickCategory = function clickCategory(_a) {
-  var initalCategory = _a.initalCategory,
+  var target = _a.target,
       render = _a.render;
-  var prevCategory = initalCategory;
+  var prevCategory = target;
   return function (e) {
     var target = e.target;
 
@@ -501,13 +501,13 @@ document.addEventListener("DOMContentLoaded", function () {
     return __generator(this, function (_a) {
       timeCategoryList = (0, utils_1.$)(".time-categories");
       render = renderTrackingList({
-        trackingListEl: (0, utils_1.$)(".tracking-list"),
-        renderTrackings: getTrackings(data_json_1.default.data)
+        target: (0, utils_1.$)(".tracking-list"),
+        render: getTrackings(data_json_1.default.data)
       });
 
       if ((0, utils_1.isElement)(timeCategoryList)) {
         timeCategoryList.addEventListener("click", clickCategory({
-          initalCategory: (0, utils_1.$)(".time-categories .active"),
+          target: (0, utils_1.$)(".time-categories .active"),
           render: render
         }));
       }
